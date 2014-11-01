@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <style>
+        #adding, #removing, #events{
+            width:700px;
+            margin:5px;
+            padding:5px;
+            border:1px solid;
+        }
+    </style>
+</head>
+<body>
+    <script type="text/javascript">
+
+        function addtext(selector) {
+            if (document.createTextNode) {
+                var mytext = document.createTextNode(' This Text was added to the DIV. ')
+                document.getElementById(selector).appendChild(mytext)
+            }
+        }
+
+        function removeText(selector) {
+            
+            var child = document.getElementById("p1");
+            document.getElementById(selector).removeChild(child);
+        }
+
+        function attachEvent() {
+            var e = document.getElementById("userSelect");
+            var strUser = e.options[e.selectedIndex].value;
+
+            var element = document.getElementById("demo")
+            switch (strUser) {
+                case "onclick":
+                    element.innerHTML = "Click me";                  
+                    element.onclick = function clickFunction() {
+                        element.innerHTML = "YOU CLICKED ME!";
+                    }
+                    break;
+
+                case "ondblclick":                  
+                    element.innerHTML = "Make a double click";
+                    element.ondblclick = function doubleClickFunction() {
+                        element.innerHTML = "YOU DOUBLE CLICKED ME!";
+                        element.style.color = "red";
+                    }
+                    break;
+
+                case "onmouseover":                    
+                    element.innerHTML = "Play with mouse over and mous out";
+                    element.onmouseover = function mouseOverFunction() {
+                        element.style.fontSize = "32px";
+                        element.style.color = "green";
+                        element.innerHTML = "Mouse over";
+
+                        element.onmouseout = function mouseOutFunction() {
+                            element.style.fontSize = "22px";
+                            element.style.color = "orange";
+                            element.innerHTML = "Mouse out";
+                    
+                        }                       
+                    }
+                    break;
+
+                case "onkeypress":
+                    var element = document.getElementById("keyDemo")
+                    element.innerHTML = "Press any key inside the input field";
+                    var child = document.createElement("input");
+                    element.appendChild(child);
+                    child.onkeypress= function keyPressFunction() {
+                        child.style.backgroundColor = "orange"
+                    }
+                    break;               
+            }
+            
+        }
+    </script>
+    <div id="adding" onclick="addtext('adding')" style="font:20px bold; cursor:hand">
+        <h3>Click here to add text<br /></h3>
+    </div>
+
+    <div id="removing" onclick="removeText('removing')" style="font:20px bold; cursor:hand">
+        <p id="p1">I am a paragraph and will disappear.</p>
+        <h3>Click here to remove text<br /></h3>
+    </div>
+
+    <div id="events" >
+        <h3 id="title">Please select the event you want to test</h3>
+        <select id="userSelect">
+            <option>Select</option>
+            <option value="onclick">On mouse click</option>
+            <option value="ondblclick">On double mouse click</option>           
+            <option value="onmouseover">On mouse over and On mouse out</option>
+            <option value="onkeypress">On key press</option>
+                  
+        </select>
+        <button type="submit" id="submitButon"onclick="attachEvent()" style="font:20px bold">submit</button>
+        <p id="keyDemo"></p>
+    </div>
+    <div id="eventHendler">
+        <p id="demo"></p>
+    </div>
+    <div id="storeRetrived" onclick="retrievElements()" style="font:20px bold; cursor:hand">
+        
+    </div>
+</body>
+</html>

@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        ul{
+            list-style-type:none;
+        }
+    </style>    
+</head>
+<body>
+
+    <header>
+        <h1>Living Creatures</h1>
+    </header>
+    <section>
+        <article class="birds">
+            <h2 class="birds-heading">Birds</h2>
+            <ul class="birds-list">
+                <li class="bird">Nightingale</li>
+                <li class="bird">Owl</li>
+                <li class="bird">
+                    Hawk
+                    <ul>
+                        <li class="sub-bird">Black Hawk</li>
+                        <li class="sub-bird">Chicago Hawk</li>
+                    </ul>
+                </li>
+                <li id="eagle" class="bird">Eagle</li>
+                <li class="bird">Sparrow</li>
+                <li class="bird">Falcon</li>
+                <li class="bird">Blackbird</li>
+            </ul>
+        </article>
+        <article class="mammals">
+            <h2 class="mammal-heading">Mammals</h2>
+            <ol class="mammal-list">
+                <li id="dolphin" class="mammal">Dolphin</li>
+                <li class="mammal">Elephant</li>
+                <li class="mammal">Hyena</li>
+            </ol>
+        </article>
+    </section>
+
+
+<script type="text/javascript">
+    function htmlTree(obj) {
+        var selector = 'birds'
+        var obj = obj || document.getElementsByClassName(selector)[0];
+
+        var str = "<ul><li>";           
+        if (obj.hasChildNodes()) {
+
+            var child = obj.firstChild;
+            while (child) {
+                if (child.nodeType === 1 && child.nodeName != 'SCRIPT') {
+                        
+                    if (child.id !== undefined && child.id != "" && child.className != "")
+                    {                           
+                        str += child.tagName +
+                            " : id = " + " \"" + child.id + "\"" +
+                            " class = " + " \"" + child.className + "\"";
+                    } else {
+
+                        if (child.className != ""){
+                            str += child.tagName +
+                                " : class = " + " \"" + child.className + "\"";
+                        }
+                        else {
+                            str += child.tagName+ ":";
+                        }
+                    }
+                        
+                    str += htmlTree(child);
+                }
+
+                child = child.nextSibling;
+            }
+        }
+
+        str += "</li></ul>";
+        return str;
+    }
+    
+    document.write(htmlTree());
+    
+</script>
+
+</body>
+</html>

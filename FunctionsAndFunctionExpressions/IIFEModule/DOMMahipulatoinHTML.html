@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script src="DOMMahipulatoinIIFEModule.js"></script>
+</head>
+<body>
+
+        <article class="birds">
+            <h2 class="birds-heading">Birds</h2>
+            <ul class="birds-list">
+                <li class="bird">Nightingale</li>
+                <li class="bird">Owl</li>
+                <li class="bird">
+                    Hawk
+                    <ul>
+                        <li class="sub-bird">Black Hawk</li>
+                        <li class="sub-bird">Chicago Hawk</li>
+                    </ul>
+                </li>
+                <li id="eagle" class="bird">Eagle</li>
+                <li class="bird">Sparrow</li>
+                <li class="bird">Falcon</li>
+                <li class="bird">Blackbird</li>
+            </ul>
+        </article>
+    <script type="text/javascript">
+    var liElement = document.createElement("li");
+
+    domModule.appendChild(liElement, ".birds-list");
+
+    domModule.removeChild("ul.birds-list", "li:first-child");
+
+    domModule.addHandler("li.bird", 'click', function () { alert("I'm a bird!") });
+
+    var elements = domModule.retrieveElements(".bird");
+    console.log(elements);
+    </script>
+
+
+  
+</body>
+</html>
