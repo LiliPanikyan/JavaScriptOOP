@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+
+    <script src="ShapesJavaScript.js"></script>
+</head>
+<body>
+    <canvas id="myCanvas" width="400" height="200" style="border:1px solid #c3c3c3;">
+        Your browser does not support the HTML5 canvas tag.
+    </canvas>
+    <script>
+        var rectangle = new Shapes.Rect(200, 20, "#FF0000", 100, 50);
+        rectangle.draw();
+
+        var circle = new Shapes.Circle(60, 60, "#4B27EA", 40);
+        circle.draw();
+
+        var triangle = new Shapes.Triangle(195, 195, 195, 105, 105, 195, "#FBFF44");
+        triangle.draw();
+
+        var segment = new Shapes.Segment(0, 0, 400, 200, "#FF006E");
+        segment.draw();
+
+        var point = new Shapes.Point(300, 10, "#871EFF");
+        point.draw();
+    </script>
+
+    <br />
+    
+    
+
+    
+</body>
+
+</html>

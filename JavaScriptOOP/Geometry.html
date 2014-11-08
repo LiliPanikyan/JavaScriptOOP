@@ -1,0 +1,153 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Geometry</title>
+    <style>
+        input {
+            width: 70px;
+        }
+
+        #shapeStrings {
+            width: 500px;
+            height: auto;
+            border: 1px solid grey;
+        }
+    </style>
+    <script src="Shapes.js"> </script>
+
+</head>
+<body>
+    <script>
+
+        var userShapes = [];
+
+        function getUserChoice() {
+            var e = document.getElementById("selectShape");
+            var strUser = e.options[e.selectedIndex].value;
+            switch (strUser) {
+                case "rectangle":
+                    var x = inputForm.xValue.value;
+                    var y = inputForm.yValue.value;
+                    var color = inputForm.myColor.value;
+                    var width = inputForm.widthValue.value;
+                    var height = inputForm.heightValue.value;
+
+                    var rectangle = new Shapes.Rect(x, y, color, width, height);
+
+                    document.getElementById("shapeStrings").innerHTML += rectangle + "<br/>";
+                    userShapes.push(rectangle);
+                    break;
+
+                case "circle":
+                    var x = inputForm.xValue.value;
+                    var y = inputForm.yValue.value;
+                    var color = inputForm.myColor.value;
+                    var radius = inputForm.radiusValue.value;
+
+                    var circle = new Shapes.Circle(x, y, color, radius);
+
+                    document.getElementById("shapeStrings").innerHTML += circle + "<br/>";
+                    userShapes.push(circle);
+                    break;
+
+                case "triangle":
+                    var x = inputForm.xValue.value;
+                    var y = inputForm.yValue.value;
+                    var color = inputForm.myColor.value;
+                    var x2 = inputForm.secondXvalue.value;
+                    var y2 = inputForm.secondYvalue.value;
+                    var x3 = inputForm.thirdXvalue.value;
+                    var y3 = inputForm.thirdXvalue.value;
+
+                    var triangle = new Shapes.Triangle(x, y, x2, y2, x3, y3, color);
+
+                    document.getElementById("shapeStrings").innerHTML += triangle + "<br/>";
+                    userShapes.push(triangle);
+                    break;
+
+                case "segment":
+                    var x = inputForm.xValue.value;
+                    var y = inputForm.yValue.value;
+                    var color = inputForm.myColor.value;
+                    var x2 = inputForm.secondXvalue.value;
+                    var y2 = inputForm.secondYvalue.value;
+
+                    var segment = new Shapes.Segment(x, y, x2, y2, color);
+
+                    document.getElementById("shapeStrings").innerHTML += segment + "<br/>";
+                    userShapes.push(segment);
+                    break;
+
+                case "point":
+                    var x = inputForm.xValue.value;
+                    var y = inputForm.yValue.value;
+                    var color = inputForm.myColor.value;
+
+                    var point = new Shapes.Point(x, y, color);
+
+                    document.getElementById("shapeStrings").innerHTML += point + "<br/>";
+                    userShapes.push(point);
+                    break;
+            }
+        }
+
+        function drawShapes() {
+            userShapes.forEach(function (shape) {
+                if (shape instanceof Shapes.Rect ||
+                    shape instanceof Shapes.Circle ||
+                    shape instanceof Shapes.Triangle ||
+                    shape instanceof Shapes.Segment ||
+                    shape instanceof Shapes.Point) {
+                    shape.draw();
+                }
+
+            })
+        }
+        //function printShapes() {
+        //    userShapes.forEach((function (entry) {
+        //        document.getElementById("shapeStrings").innerHTML += entry;
+        //    }))
+        //}
+    </script>
+
+    <form name="inputForm" action="" method="get">
+        X: <input type="text" name="xValue" />
+        Y: <input type="text" name="yValue" />
+        Color: <input type="color" name="myColor">
+        <br />
+        <br />
+        Width: <input type="text" name="widthValue" />
+        X2: <input type="text" name="secondXvalue" />
+        Y2: <input type="text" name="secondYvalue" />
+        <br />
+        <br />
+        Height: <input type="text" name="heightValue" />
+        X3: <input type="text" name="thirdXvalue" />
+        Y3: <input type="text" name="thirdYvalue" />
+        <br />
+        <br />
+        Radius: <input type="text" name="radiusValue" />
+        <br />
+        <br />
+        <label for="selectShape">Shape: </label>
+        <select id="selectShape" onchange="getUserChoice()">
+            <option></option>
+            <option value="rectangle">Rectangle</option>
+            <option value="circle">Circle</option>
+            <option value="triangle">Triangle</option>
+            <option value="segment">Segment</option>
+            <option value="point">Point</option>
+        </select>
+    </form>
+    <br />
+    <br />
+    <div id="shapeStrings"></div>
+    <br />
+    <button type="submit" id="submitButon" onclick="drawShapes()" style="font:20px bold">Draw</button>
+    <br />
+    <br />
+    <canvas id="canvasBox" width="400" height="200" style="border:1px solid grey;">
+        Your browser does not support the HTML5 canvas tag.
+    </canvas>
+</body>
+</html>
