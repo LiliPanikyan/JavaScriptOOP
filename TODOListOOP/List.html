@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>TODO List Module</title>
+    <link href="StyleList.css" rel="stylesheet" />
+    <script src="ListModuleCreator.js"></script>
+    <script src="getDayOfWeek.js"></script>
+</head>
+<body onload="javascript: return getDay();">
+    <div id="todoList">
+
+        <header id="listHeader"></header>
+
+        <div id="container"></div>
+
+        <footer id="listFooter">
+            <input type="text" placeholder="Title" id="addedSectionItem" />
+            <button type="button" id="addSectionButton" onclick="listModule.Container.addSection()">New Section</button>
+        </footer>
+        
+    </div>
+</body>
+</html>

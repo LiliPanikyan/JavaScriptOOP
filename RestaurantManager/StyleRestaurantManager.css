@@ -1,0 +1,27 @@
+﻿body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        textarea {
+            font-size: 12pt;
+            height: 600px;
+        }
+
+            textarea#input {
+                width: 550px;
+            }
+
+            textarea#output {
+                width: 550px;
+            }
+
+        div {
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        button {
+            width: 100px;
+            height: 60px;
+            margin: 250px 10px 10px 10px;
+        }

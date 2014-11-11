@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <style>
+        body{
+            margin:0;
+            padding:0;
+            font-family:'Times New Roman', Times, serif;
+        }
+
+        #todoList{
+            width:500px;
+            height:auto;
+            position:relative;
+            left:30%;
+            padding:10px;
+            margin:10px;
+            border:2px solid black;
+        }
+
+        #todoList #listHeader{
+            text-align:center;
+            font-size:24px;
+        }
+
+        #container{
+            border:2px solid grey;
+            width:96%;
+            height:100%;
+            padding:10px;            
+        }    
+        #listFooter{
+            margin-top:10px;
+        }
+        #shoping{
+            border:1px solid grey;
+        }
+
+       #sectionHeader{
+            text-align:right;
+            padding:5px;
+            font-size:20px;
+            font-weight:bold;
+            margin-right:5px;
+        }
+
+        .checkBox, .itemTittle{
+            display:inline-block;
+        }
+
+        .itemTittle{
+            width:93%;
+            border-bottom:1px solid grey;
+        }
+
+        #sectionFooter {
+            width: 55%;
+            position: relative;
+            left: 45%;
+            padding: 5px;
+            margin-top: 5px;
+        }
+
+    </style>
+    <script src="GetDayOfWeek.js"></script>
+    <script src="ListModule.js"></script>
+</head>
+<body onload="getDay()">
+    <div id="todoList">
+        <header id="listHeader"></header>
+
+        <div id="container">
+            <div id="shoping">
+                <header id="sectionHeader">
+                    Shoping List
+                </header>
+                <input type="checkbox" class="checkBox" onclick="listModule.changeColor('Air-freshenerDiv')"id="Air-freshenerBox" /><div class="itemTittle" id="Air-freshenerDiv">Air-freshener</div><br />
+                <input type="checkbox" class="checkBox" id="PampersBox" onclick="listModule.changeColor('PampersDiv')" /><div id="PampersDiv" class="itemTittle">Pampers</div><br />
+                <input type="checkbox" class="checkBox" id="NewspaperBox" onclick="listModule.changeColor('NewspaperDiv')" /><div id="NewspaperDiv" class="itemTittle">Newspaper</div><br />
+                <input type="checkbox" class="checkBox" id="Toilet paperBox" onclick="listModule.changeColor('Toilet paperDiv')" /><div id="Toilet paperDiv" class="itemTittle">Toilet paper</div><br />
+            </div>
+            <div id="sectionFooter">
+                <input type="text" placeholder="Add Item...." id="shopingItem" />
+                <button type="button" id="shopingButton" onclick="listModule.addItem('shoping', 'shopingItem')">New Item...</button>
+            </div>           
+        </div>
+
+        <footer id="listFooter">
+            <input type="text" placeholder="Title" id="sectionItem"/>
+            <button type="button" id="addSectionButton" onclick="listModule.addSection()">New Section</button>
+        </footer>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,72 @@
+﻿body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#todoList {
+    width: 500px;
+    height: auto;
+    position: relative;
+    left: 30%;
+    padding: 10px;
+    margin: 10px;
+    border: 2px solid #67869B;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+}
+
+    #todoList button {
+        background-color: #67869B;
+        border: 1px solid #67869B;
+        -moz-border-radius: 2px;
+        -webkit-border-radius: 2px;
+        border-radius: 2px;
+        color: white;
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 16px;
+        padding: 2px;
+    }
+
+    #todoList #listHeader {
+        text-align: center;
+        font-size: 24px;
+    }
+
+#container {
+    border: 2px solid #67869B;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    width: 96%;
+    height: 100%;
+    padding: 10px;
+}
+
+#listFooter {
+    margin-top: 10px;
+}
+
+.checkBox, .itemTittle {
+    display: inline-block;
+}
+
+.itemTittle {
+    width: 93%;
+    border-bottom: 1px solid grey;
+}
+
+#sectionFooter {
+    width: 55%;
+    position: relative;
+    left: 48%;
+    padding: 5px;
+    margin-top: 5px;
+}
+
+#addedSectionItem {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 14px;
+    padding: 2px;
+}
